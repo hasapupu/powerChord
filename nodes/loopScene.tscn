@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://c7gja0e076olq"]
+[gd_scene load_steps=25 format=3 uid="uid://c7gja0e076olq"]
 
 [ext_resource type="Script" path="res://nodes/playerScript.gd" id="1_f47uq"]
 [ext_resource type="Texture2D" uid="uid://qo65g1pkq207" path="res://funny skeleman.png" id="1_siahx"]
 [ext_resource type="Texture2D" uid="uid://sebol06paw01" path="res://slash.png" id="3_jvntd"]
 [ext_resource type="Texture2D" uid="uid://f36n1t5n32ay" path="res://mainStage.png" id="4_y4utr"]
 [ext_resource type="Texture2D" uid="uid://b14ek15gehiev" path="res://77568a4e1c3b14dd9a6f6ab0541f44ee (1).jpg" id="5_eosk7"]
+[ext_resource type="Script" path="res://nodes/enemySpawner.gd" id="6_ixuyg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21jf3"]
 size = Vector2(29, 38)
@@ -795,7 +796,7 @@ _data = {
 }
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_20sxe"]
-a = Vector2(61, -170)
+a = Vector2(63, -175)
 b = Vector2(-36, 184)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_p2lnv"]
@@ -803,67 +804,70 @@ a = Vector2(-329, -53)
 b = Vector2(328, -52)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ggs6m"]
-a = Vector2(327, -52)
-b = Vector2(429, 259)
+a = Vector2(330, -62)
+b = Vector2(438, 267)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7d3j0"]
 a = Vector2(430, 259)
 b = Vector2(-415, 259)
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="."]
+collision_layer = 7
+platform_floor_layers = 4294967040
 script = ExtResource("1_f47uq")
 
-[node name="head" type="Sprite2D" parent="CharacterBody2D"]
+[node name="head" type="Sprite2D" parent="player"]
 z_index = 1
 position = Vector2(0, -50)
 texture = ExtResource("1_siahx")
 region_enabled = true
 region_rect = Rect2(19, 194, 68, 60)
 
-[node name="torso" type="Sprite2D" parent="CharacterBody2D"]
+[node name="torso" type="Sprite2D" parent="player"]
 texture = ExtResource("1_siahx")
 region_enabled = true
 region_rect = Rect2(32, 255, 45, 58)
 
-[node name="leg1" type="Sprite2D" parent="CharacterBody2D"]
+[node name="leg1" type="Sprite2D" parent="player"]
 position = Vector2(-20, 40)
 texture = ExtResource("1_siahx")
 region_enabled = true
 region_rect = Rect2(25, 323, 28, 12)
 
-[node name="leg2" type="Sprite2D" parent="CharacterBody2D"]
+[node name="leg2" type="Sprite2D" parent="player"]
 position = Vector2(20, 40)
 texture = ExtResource("1_siahx")
 region_enabled = true
 region_rect = Rect2(55, 323, 28, 12)
 
-[node name="hand1" type="Sprite2D" parent="CharacterBody2D"]
+[node name="hand1" type="Sprite2D" parent="player"]
 position = Vector2(-44, 6)
 texture = ExtResource("1_siahx")
 region_enabled = true
 region_rect = Rect2(2, 286, 16, 19)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_21jf3")
 
-[node name="feetAnim" type="AnimationPlayer" parent="CharacterBody2D"]
+[node name="feetAnim" type="AnimationPlayer" parent="player"]
 libraries = {
 "": SubResource("AnimationLibrary_kxjqv")
 }
 autoplay = "playerIdle"
 
-[node name="handsAnim" type="AnimationPlayer" parent="CharacterBody2D"]
+[node name="handsAnim" type="AnimationPlayer" parent="player"]
 libraries = {
 "": SubResource("AnimationLibrary_fdm0n")
 }
 
-[node name="weaponPivot" type="Node2D" parent="CharacterBody2D"]
+[node name="weaponPivot" type="Node2D" parent="player"]
 position = Vector2(0, -29)
 
-[node name="hand2" type="Sprite2D" parent="CharacterBody2D/weaponPivot"]
+[node name="hand2" type="Sprite2D" parent="player/weaponPivot"]
 position = Vector2(54, -9)
 texture = ExtResource("1_siahx")
 region_enabled = true
@@ -872,34 +876,49 @@ region_rect = Rect2(94, 190, 58, 144)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -10
+light_mask = 0
+z_index = -900
+rotation = 0.00270063
 texture = ExtResource("4_y4utr")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-z_index = -13
+light_mask = 0
+z_index = -901
 position = Vector2(23, -239)
 scale = Vector2(0.543, 0.518667)
 texture = ExtResource("5_eosk7")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
 position = Vector2(-379, 76)
 shape = SubResource("SegmentShape2D_20sxe")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D"]
 position = Vector2(6, -43)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2"]
 shape = SubResource("SegmentShape2D_p2lnv")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D3"]
+position = Vector2(-16, -32)
 shape = SubResource("SegmentShape2D_ggs6m")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node2D"]
 position = Vector2(0, -29)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D4"]
 shape = SubResource("SegmentShape2D_7d3j0")
+
+[node name="Node2D2" type="Node2D" parent="."]
+script = ExtResource("6_ixuyg")
+
+[node name="Timer" type="Timer" parent="Node2D2"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Node2D2/Timer" to="Node2D2" method="_on_timer_timeout"]

@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://yqobe541jhtr"]
+
+[ext_resource type="Script" path="res://nodes/footSoldierEnemy.gd" id="1_fh8fc"]
+[ext_resource type="Texture2D" uid="uid://d4mhdn1dh3xvn" path="res://robotenemies.png" id="1_qq3xh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcyt2"]
+size = Vector2(39, 54)
+
+[sub_resource type="Animation" id="Animation_3tp0u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3/Sprite2D2:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(209, 310, 18, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_imyvp"]
+resource_name = "robotMove"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3/Sprite2D2:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(209, 310, 18, 17), Rect2(225, 276, 18, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 4), Vector2(-1, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oahgv"]
+_data = {
+"RESET": SubResource("Animation_3tp0u"),
+"robotMove": SubResource("Animation_imyvp")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 2
+platform_floor_layers = 4294967040
+script = ExtResource("1_fh8fc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 4)
+rotation = 0.127409
+texture = ExtResource("1_qq3xh")
+region_enabled = true
+region_rect = Rect2(170, 190, 41, 50)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(3, 46)
+rotation = -0.125664
+texture = ExtResource("1_qq3xh")
+region_enabled = true
+region_rect = Rect2(183, 254, 18, 49)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D3"]
+position = Vector2(0, 16)
+texture = ExtResource("1_qq3xh")
+region_enabled = true
+region_rect = Rect2(209, 310, 18, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_vcyt2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oahgv")
+}
+autoplay = "robotMove"

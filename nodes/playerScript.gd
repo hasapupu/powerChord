@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends owCharBod
 
 @export var speed := 250
 @onready var footsiesAnim := get_node("feetAnim")
@@ -9,9 +9,8 @@ func getInput():
     var inputDirection = Input.get_vector("left","right","up","down")
     velocity = inputDirection * speed
 
-func _process(delta):
+func _physics_process(delta):
     getInput()
-    print(velocity)
     move_and_slide()
     if velocity == Vector2(0,0):
         footsiesAnim.play("playerIdle")
@@ -33,3 +32,5 @@ func _process(delta):
 
     if Input.is_action_just_pressed("basicAttack"):
         themHandsAnim.play(atkAnim + "hit")
+
+    setZindex()
