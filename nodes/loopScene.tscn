@@ -1,10 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7gja0e076olq"]
+[gd_scene load_steps=31 format=3 uid="uid://c7gja0e076olq"]
 
 [ext_resource type="Script" path="res://nodes/playerScript.gd" id="1_f47uq"]
 [ext_resource type="Texture2D" uid="uid://qo65g1pkq207" path="res://funny skeleman.png" id="1_siahx"]
 [ext_resource type="Texture2D" uid="uid://sebol06paw01" path="res://slash.png" id="3_jvntd"]
+[ext_resource type="Script" path="res://nodes/hurtBox.gd" id="4_1ohcr"]
 [ext_resource type="Texture2D" uid="uid://f36n1t5n32ay" path="res://mainStage.png" id="4_y4utr"]
 [ext_resource type="Texture2D" uid="uid://b14ek15gehiev" path="res://77568a4e1c3b14dd9a6f6ab0541f44ee (1).jpg" id="5_eosk7"]
+[ext_resource type="Script" path="res://nodes/hitBox.gd" id="5_jj6c2"]
 [ext_resource type="Script" path="res://nodes/enemySpawner.gd" id="6_ixuyg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21jf3"]
@@ -108,6 +110,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [Rect2(19, 194, 68, 60)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("hitBox:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 70)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("hitBox:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_5t26h"]
 resource_name = "backWalk"
@@ -184,6 +210,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(28, 127, 45, 58)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("hitBox:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -105)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("hitBox:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_bd181"]
@@ -262,6 +312,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Rect2(32, 255, 45, 58)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("hitBox:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 70)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("hitBox:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ra70y"]
 resource_name = "leftWalk"
@@ -338,6 +412,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(194, 52, 45, 58)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("hitBox:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-71, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3qk6a"]
@@ -439,6 +525,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [Rect2(19, 194, 68, 60)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("hitBox:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 70)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("hitBox:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_sevvx"]
 resource_name = "rightWalk"
@@ -516,6 +626,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Rect2(190, 128, 45, 59)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("hitBox:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("hitBox:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kxjqv"]
 _data = {
@@ -577,10 +711,22 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, -29)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_pw136"]
 resource_name = "downhit"
-length = 0.1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -588,7 +734,7 @@ tracks/0/path = NodePath("weaponPivot/hand2:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("3_jvntd"), ExtResource("1_siahx")]
@@ -600,7 +746,7 @@ tracks/1/path = NodePath("weaponPivot/hand2:region_enabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -612,7 +758,7 @@ tracks/2/path = NodePath("weaponPivot:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [3.14159, 0.0]
@@ -624,15 +770,27 @@ tracks/3/path = NodePath("weaponPivot:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(61, 34), Vector2(6, -13)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_n2ila"]
 resource_name = "lefthit"
-length = 0.1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -640,7 +798,7 @@ tracks/0/path = NodePath("weaponPivot/hand2:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("3_jvntd"), ExtResource("1_siahx")]
@@ -652,7 +810,7 @@ tracks/1/path = NodePath("weaponPivot/hand2:region_enabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -664,7 +822,7 @@ tracks/2/path = NodePath("weaponPivot:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-1.5708, 0.0]
@@ -676,15 +834,27 @@ tracks/3/path = NodePath("weaponPivot:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(-43, 46), Vector2(0, -28)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_e1f6c"]
 resource_name = "righthit"
-length = 0.1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -692,7 +862,7 @@ tracks/0/path = NodePath("weaponPivot/hand2:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("3_jvntd"), ExtResource("1_siahx")]
@@ -704,7 +874,7 @@ tracks/1/path = NodePath("weaponPivot/hand2:region_enabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -716,7 +886,7 @@ tracks/2/path = NodePath("weaponPivot:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1.5708, 0.0]
@@ -728,15 +898,27 @@ tracks/3/path = NodePath("weaponPivot:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(47, -80), Vector2(0, -28)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_krrau"]
 resource_name = "uphit"
-length = 0.1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -744,7 +926,7 @@ tracks/0/path = NodePath("weaponPivot/hand2:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("3_jvntd"), ExtResource("1_siahx")]
@@ -756,7 +938,7 @@ tracks/1/path = NodePath("weaponPivot/hand2:region_enabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -768,7 +950,7 @@ tracks/2/path = NodePath("weaponPivot:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0.0, 0.0]
@@ -780,10 +962,22 @@ tracks/3/path = NodePath("weaponPivot:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(-69, -66), Vector2(0, -28)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fdm0n"]
@@ -794,6 +988,12 @@ _data = {
 "righthit": SubResource("Animation_e1f6c"),
 "uphit": SubResource("Animation_krrau")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wx8f"]
+size = Vector2(31, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo3qh"]
+size = Vector2(238, 127)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_20sxe"]
 a = Vector2(63, -175)
@@ -811,11 +1011,16 @@ b = Vector2(438, 267)
 a = Vector2(430, 259)
 b = Vector2(-415, 259)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8dwa"]
+bg_color = Color(1, 0.311639, 0.464395, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip6oj"]
+bg_color = Color(4.81307e-07, 0.70694, 0.513106, 1)
+
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
-[node name="player" type="CharacterBody2D" parent="."]
-collision_layer = 7
+[node name="player" type="CharacterBody2D" parent="." groups=["player"]]
 platform_floor_layers = 4294967040
 script = ExtResource("1_f47uq")
 
@@ -873,6 +1078,24 @@ texture = ExtResource("1_siahx")
 region_enabled = true
 region_rect = Rect2(94, 190, 58, 144)
 
+[node name="Area2D" type="Area2D" parent="player"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_1ohcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_5wx8f")
+
+[node name="hitBox" type="Area2D" parent="player" groups=["playerHitbox"]]
+position = Vector2(0, 70)
+script = ExtResource("5_jj6c2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/hitBox"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_jo3qh")
+disabled = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -921,4 +1144,16 @@ script = ExtResource("6_ixuyg")
 wait_time = 3.0
 autostart = true
 
+[node name="TextureProgressBar" type="ProgressBar" parent="."]
+offset_left = -273.0
+offset_top = 196.0
+offset_right = 275.0
+offset_bottom = 260.0
+theme_override_font_sizes/font_size = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_j8dwa")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ip6oj")
+value = 50.0
+show_percentage = false
+
+[connection signal="area_entered" from="player/Area2D" to="player/Area2D" method="_on_area_entered"]
 [connection signal="timeout" from="Node2D2/Timer" to="Node2D2" method="_on_timer_timeout"]

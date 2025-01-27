@@ -1,6 +1,17 @@
 class_name footSoldierEnemy extends owCharBod
 
-var playerPos: Node2D
+var playerPos: player
+var currentHp := 9
+@onready var deathExplosionVfx = preload("res://nodes/particlesHit.tscn") as PackedScene
+@onready var hitExplosionVfx = get_node("CPUParticles2D") as CPUParticles2D
+var deathLim := true
+
+func deathFx():
+    print("asdasdasd")
+    var currVfx = deathExplosionVfx.instantiate() as CPUParticles2D
+    currVfx.position = position
+    get_parent().add_child(currVfx)
+    currVfx.emitting = true
 
 func _ready():
     print("awake")
@@ -12,13 +23,12 @@ func _physics_process(delta):
     else:
         scale = Vector2(1,1)
 
-    setZindex()
+    if currentHp < 1 and deathLim == true:
+        deathLim = false
+        deathFx()
+        queue_free()
 
-func modClamp(inp: Vector2) -> Vector2:
-    var xd := inp.x
-    var yd := inp.y
-    while xd > 1 or xd < -1:
-        xd /= 10
-    while yd > 1 or yd < -1:
-        yd /= 10
-    return Vector2(xd,yd)
+func onHit():
+    currentHp -= 3
+    hitExplosionVfx.emitting = true
+
