@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var basicEnemy: PackedScene = preload("res://nodes/footSoldierEnemy.tscn")
+@onready var basicEnemy: PackedScene = preload("res://nodes/rangedEnemy.tscn")
 @onready var playerGO = get_parent().get_node("player") 
 @onready var bruhTimer: Timer = get_node("Timer")
 var timeUntilSpawn = 3 

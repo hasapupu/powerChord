@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://yqobe541jhtr"]
+[gd_scene load_steps=13 format=3 uid="uid://yqobe541jhtr"]
 
 [ext_resource type="Script" path="res://nodes/footSoldierEnemy.gd" id="1_fh8fc"]
 [ext_resource type="Texture2D" uid="uid://d4mhdn1dh3xvn" path="res://robotenemies.png" id="1_qq3xh"]
@@ -74,6 +74,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxlyn"]
 size = Vector2(44, 49)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1bbx"]
+bg_color = Color(0.410327, 5.83585e-07, 1.44392e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qttcf"]
+bg_color = Color(1, 0, 0.0313726, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
@@ -126,5 +132,16 @@ position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_vcyt2")
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("6_lem8c")]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -18.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = -23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_d1bbx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qttcf")
+max_value = 9.0
+value = 9.0
+show_percentage = false
 
 [connection signal="area_entered" from="hurtBox" to="hurtBox" method="_on_area_entered"]

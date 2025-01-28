@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dygf6128mf8sf"]
+
+[ext_resource type="Texture2D" uid="uid://qo65g1pkq207" path="res://funny skeleman.png" id="1_a64gd"]
+[ext_resource type="Script" path="res://nodes/bullet.gd" id="2_nffox"]
+[ext_resource type="Script" path="res://nodes/hitBox.gd" id="2_p865m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onnve"]
+radius = 8.0
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_a64gd")
+region_enabled = true
+region_rect = Rect2(186, 279, 16, 16)
+script = ExtResource("2_nffox")
+
+[node name="hitBox" type="Area2D" parent="."]
+script = ExtResource("2_p865m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+shape = SubResource("CircleShape2D_onnve")

@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1m3uoeu7xtkq"]
+
+[ext_resource type="Texture2D" uid="uid://d4mhdn1dh3xvn" path="res://robotenemies.png" id="1_0pwpf"]
+[ext_resource type="Script" path="res://nodes/rangedEnemy.gd" id="1_i8qq2"]
+[ext_resource type="Script" path="res://nodes/hitBox.gd" id="2_d2wwu"]
+[ext_resource type="Script" path="res://nodes/hurtBox.gd" id="3_5fasl"]
+[ext_resource type="PackedScene" uid="uid://dhx23tiwcsyo7" path="res://nodes/particleHitButFr.tscn" id="4_sngd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6eo8q"]
+size = Vector2(39, 54)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d41ma"]
+bg_color = Color(0.410327, 5.83585e-07, 1.44392e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqwdl"]
+bg_color = Color(1, 0, 0.0313726, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ynhy"]
+size = Vector2(44, 49)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_i8qq2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -52)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(170, 190, 41, 50)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(65, 255, 58, 74)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(38, -17)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(111, 194, 35, 32)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(49, 10)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(134, 237, 18, 43)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(-32, -6)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(49, 198, 24, 31)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(-56, 3)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(22, 242, 42, 19)
+
+[node name="gun" type="Sprite2D" parent="."]
+position = Vector2(-88, -11)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(54, 167, 46, 18)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(7, 58)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(183, 254, 18, 49)
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(7, 74)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(209, 310, 18, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -9)
+shape = SubResource("RectangleShape2D_6eo8q")
+
+[node name="hurtBox" type="Area2D" parent="."]
+script = ExtResource("3_5fasl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(2.5, -9)
+shape = SubResource("RectangleShape2D_6eo8q")
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("4_sngd0")]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = 21.0
+offset_top = -83.0
+offset_right = 59.0
+offset_bottom = -80.0
+theme_override_styles/background = SubResource("StyleBoxFlat_d41ma")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lqwdl")
+max_value = 9.0
+value = 9.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="hitBox" type="Area2D" parent="." groups=["enemyHitbox"]]
+position = Vector2(3, -14)
+script = ExtResource("2_d2wwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_0ynhy")
+
+[connection signal="area_entered" from="hurtBox" to="hurtBox" method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

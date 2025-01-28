@@ -1040,19 +1040,19 @@ region_rect = Rect2(32, 255, 45, 58)
 position = Vector2(-20, 40)
 texture = ExtResource("1_siahx")
 region_enabled = true
-region_rect = Rect2(25, 323, 28, 12)
+region_rect = Rect2(25, 322, 28, 13)
 
 [node name="leg2" type="Sprite2D" parent="player"]
 position = Vector2(20, 40)
 texture = ExtResource("1_siahx")
 region_enabled = true
-region_rect = Rect2(55, 323, 28, 12)
+region_rect = Rect2(54, 321, 29, 14)
 
 [node name="hand1" type="Sprite2D" parent="player"]
 position = Vector2(-44, 6)
 texture = ExtResource("1_siahx")
 region_enabled = true
-region_rect = Rect2(2, 286, 16, 19)
+region_rect = Rect2(1, 284, 19, 23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(-0.5, 1)
