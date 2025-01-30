@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://sebol06paw01" path="res://slash.png" id="3_jvntd"]
 [ext_resource type="Script" path="res://nodes/hurtBox.gd" id="4_1ohcr"]
 [ext_resource type="Texture2D" uid="uid://f36n1t5n32ay" path="res://mainStage.png" id="4_y4utr"]
-[ext_resource type="Texture2D" uid="uid://b14ek15gehiev" path="res://77568a4e1c3b14dd9a6f6ab0541f44ee (1).jpg" id="5_eosk7"]
 [ext_resource type="Script" path="res://nodes/hitBox.gd" id="5_jj6c2"]
 [ext_resource type="Script" path="res://nodes/enemySpawner.gd" id="6_ixuyg"]
+[ext_resource type="Texture2D" uid="uid://bqa56mem028s5" path="res://mainStageFinal.png" id="7_uhbol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21jf3"]
 size = Vector2(29, 38)
@@ -996,20 +996,20 @@ size = Vector2(31, 31)
 size = Vector2(238, 127)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_20sxe"]
-a = Vector2(63, -175)
-b = Vector2(-36, 184)
+a = Vector2(35, -100)
+b = Vector2(-58, 47)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_p2lnv"]
-a = Vector2(-329, -53)
-b = Vector2(328, -52)
+a = Vector2(-486, 18)
+b = Vector2(482, 21)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ggs6m"]
-a = Vector2(330, -62)
-b = Vector2(438, 267)
+a = Vector2(359, 10)
+b = Vector2(466, 157)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7d3j0"]
-a = Vector2(430, 259)
-b = Vector2(-415, 259)
+a = Vector2(480, 154)
+b = Vector2(-481, 151)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8dwa"]
 bg_color = Color(1, 0.311639, 0.464395, 1)
@@ -1106,10 +1106,9 @@ texture = ExtResource("4_y4utr")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 light_mask = 0
-z_index = -901
-position = Vector2(23, -239)
-scale = Vector2(0.543, 0.518667)
-texture = ExtResource("5_eosk7")
+z_index = 5
+rotation = 0.00270063
+texture = ExtResource("7_uhbol")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -1123,6 +1122,7 @@ shape = SubResource("SegmentShape2D_20sxe")
 position = Vector2(6, -43)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2"]
+position = Vector2(0, -43)
 shape = SubResource("SegmentShape2D_p2lnv")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Node2D"]
@@ -1135,6 +1135,7 @@ shape = SubResource("SegmentShape2D_ggs6m")
 position = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D4"]
+position = Vector2(0, -26)
 shape = SubResource("SegmentShape2D_7d3j0")
 
 [node name="Node2D2" type="Node2D" parent="."]
@@ -1145,15 +1146,18 @@ wait_time = 3.0
 autostart = true
 
 [node name="TextureProgressBar" type="ProgressBar" parent="."]
-offset_left = -273.0
-offset_top = 196.0
-offset_right = 275.0
-offset_bottom = 260.0
+offset_left = -269.0
+offset_top = -261.0
+offset_right = 261.0
+offset_bottom = -169.0
 theme_override_font_sizes/font_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_j8dwa")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ip6oj")
 value = 50.0
 show_percentage = false
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(-455, 18)
 
 [connection signal="area_entered" from="player/Area2D" to="player/Area2D" method="_on_area_entered"]
 [connection signal="timeout" from="Node2D2/Timer" to="Node2D2" method="_on_timer_timeout"]
