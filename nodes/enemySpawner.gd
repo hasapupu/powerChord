@@ -1,4 +1,4 @@
-extends Node2D
+class_name enemySpawner extends Node2D
 
 @onready var basicEnemy: PackedScene = preload("res://nodes/footSoldierEnemy.tscn")
 @onready var kysRangedEnemy: PackedScene = preload("res://nodes/rangedEnemy.tscn")

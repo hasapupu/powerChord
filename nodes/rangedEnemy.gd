@@ -6,10 +6,10 @@ extends footSoldierEnemy
 func shoot():
 	animacion.play("stopMove")
 	shouldMove = false
-	await get_tree().create_timer(0.25).timeout
 	var tempB: bullet = susB.instantiate() as bullet
 	tempB.global_position = get_node("Sprite2D5/Sprite2D6/gun").global_position
-	tempB.target = playerPos.position * 1000
+	tempB.target = playerPos.global_position * 1000
+	await get_tree().create_timer(0.25).timeout
 	get_parent().add_child(tempB)
 	await get_tree().create_timer(0.25).timeout
 	shouldMove = true
