@@ -10,7 +10,7 @@ func _on_area_entered(area: hitBox):
     if area == null:
         return
 
-    if get_parent() is player and area.is_in_group("playerHitbox") == false:
+    if get_parent() is player and area.is_in_group("playerHitbox") == false and area.is_in_group("slowZone") == false:
         var tempP = get_parent() as player
         tempP.currentHp -= 3
         tempP.shouldMove = true
@@ -34,6 +34,9 @@ func _on_area_entered(area: hitBox):
             tempE.onHit()
             cam.trauma = 0.6
             cam.shake()
+        if area.is_in_group("slowZone"):
+            tempE.speed = 1
+            area.get_parent().queue_free()
 
     if is_in_group("playerParry"):
         if area.get_parent() is bullet:

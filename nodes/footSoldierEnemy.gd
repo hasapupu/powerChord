@@ -12,6 +12,7 @@ var isKnocked := false
 var knockVal := 0
 @onready var debugCube = preload("res://debugcube.tscn")
 @onready var drop: PackedScene = preload("res://nodes/pickUp.tscn")
+var speed := 3
 
 func deathFx():
     var currVfx = deathExplosionVfx.instantiate() as CPUParticles2D
@@ -31,7 +32,7 @@ func stun():
 
 func _physics_process(delta):
     if shouldMove == true:
-        position = position.move_toward(playerPos.position,3)
+        position = position.move_toward(playerPos.position,speed)
     if playerPos.position.x > position.x:
         get_node("sprites").scale = Vector2(-1,1)
     else:

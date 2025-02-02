@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://uowss8ywa7um"]
+
+[ext_resource type="Texture2D" uid="uid://r6gnvoa77w6i" path="res://shield.png" id="1_r3t41"]
+[ext_resource type="Script" path="res://nodes/hitBox.gd" id="2_whw45"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pc1kr"]
+radius = 83.9543
+
+[sub_resource type="Animation" id="Animation_0fy8y"]
+resource_name = "grow"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.26, 0.141), Vector2(2.005, 1.087)]
+}
+
+[sub_resource type="Animation" id="Animation_6o7jc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.84, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wf1fs"]
+_data = {
+"RESET": SubResource("Animation_6o7jc"),
+"grow": SubResource("Animation_0fy8y")
+}
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(1.84, 1)
+texture = ExtResource("1_r3t41")
+
+[node name="hitBox" type="Area2D" parent="." groups=["slowZone"]]
+script = ExtResource("2_whw45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(0, 12)
+scale = Vector2(1, 1.38782)
+shape = SubResource("CircleShape2D_pc1kr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wf1fs")
+}
+autoplay = "grow"

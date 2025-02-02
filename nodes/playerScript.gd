@@ -8,8 +8,9 @@ var currentHp = 100
 var maxHp = 100
 @onready var healthBar: ProgressBar = get_parent().get_node("TextureProgressBar")
 var shouldMove := false
-var strInv := ["dash"]
+var strInv := ["slowArea"]
 var uiParents := []
+@onready var slowAr = preload("res://nodes/slowzone.tscn")
 
 
 func _ready():
@@ -63,7 +64,7 @@ func _physics_process(delta):
 				themHandsAnim.play(atkAnim + "parry")
 		elif Input.is_action_just_pressed("slowArea"):
 			if strInv.has("slowArea"):
-				pass
+				get_parent().add_child(slowAr.instantiate())
 			pass
 		elif Input.is_action_just_pressed("projectile"):
 			if strInv.has("projectile"):
