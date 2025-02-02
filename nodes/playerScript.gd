@@ -8,7 +8,7 @@ var currentHp = 100
 var maxHp = 100
 @onready var healthBar: ProgressBar = get_parent().get_node("TextureProgressBar")
 var shouldMove := false
-var strInv := ["swing"]
+var strInv := ["dash"]
 var uiParents := []
 
 
@@ -46,7 +46,13 @@ func _physics_process(delta):
 			themHandsAnim.play(atkAnim + "hit")
 		elif Input.is_action_just_pressed("dash"):
 			if strInv.has("dash"):
-				pass
+				speed = 350
+				get_node("Area2D/CollisionShape2D").disabled = true
+				get_node("shield").visible = true
+				await get_tree().create_timer(0.7).timeout
+				speed = 250
+				get_node("Area2D/CollisionShape2D").disabled = false
+				get_node("shield").visible = false
 			pass
 		elif Input.is_action_just_pressed("overheadSlam"):
 			if strInv.has("overheadSlam"):

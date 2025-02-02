@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c7gja0e076olq"]
+[gd_scene load_steps=48 format=3 uid="uid://c7gja0e076olq"]
 
 [ext_resource type="Script" path="res://nodes/playerScript.gd" id="1_f47uq"]
 [ext_resource type="Script" path="res://nodes/daddyMaster.gd" id="1_nuh3i"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://nodes/enemySpawner.gd" id="6_ixuyg"]
 [ext_resource type="Script" path="res://shakingCam.gd" id="7_aijf6"]
 [ext_resource type="Texture2D" uid="uid://bqa56mem028s5" path="res://mainStageFinal.png" id="7_uhbol"]
+[ext_resource type="Texture2D" uid="uid://r6gnvoa77w6i" path="res://shield.png" id="8_n3lja"]
 [ext_resource type="Texture2D" uid="uid://ctdo07b2vlute" path="res://pixil-frame-0_284.png" id="10_bhfmf"]
 [ext_resource type="FontFile" uid="uid://gkdmg5l3qkpn" path="res://Digitag.ttf" id="10_h84bw"]
 
@@ -1410,6 +1411,8 @@ size = Vector2(31, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jo3qh"]
 size = Vector2(238, 127)
 
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_r1byh"]
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_r3kr8"]
 noise_type = 3
 
@@ -1540,6 +1543,14 @@ script = ExtResource("4_1ohcr")
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_jo3qh")
 disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+texture = SubResource("PortableCompressedTexture2D_r1byh")
+
+[node name="shield" type="Sprite2D" parent="player"]
+visible = false
+position = Vector2(0, -30)
+texture = ExtResource("8_n3lja")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("7_aijf6")
