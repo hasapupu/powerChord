@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbs2dlucwsmp3"]
+
+[ext_resource type="PackedScene" uid="uid://2hctpmrk0ym4" path="res://nodes/winScreen.tscn" id="1_vcw6l"]
+
+[node name="Control" type="Control"]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1046.0
+offset_top = -681.0
+offset_right = -109.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" parent="." instance=ExtResource("1_vcw6l")]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 438.0
+offset_right = 2887.0
+offset_bottom = 2499.0
+
+[editable path="ColorRect"]

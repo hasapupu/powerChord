@@ -27,11 +27,16 @@ func _on_area_entered(area: hitBox):
             tempB.queue_free()
             cam.trauma = 0.6
             cam.shake()
-			
 
     if get_parent() is footSoldierEnemy:
         var tempE = get_parent() as footSoldierEnemy
         if area.is_in_group("enemyHitbox") == false:
             tempE.onHit()
+            cam.trauma = 0.6
+            cam.shake()
+
+    if is_in_group("playerParry"):
+        if area.get_parent() is bullet:
+            area.get_parent().reverseInt = -1
             cam.trauma = 0.6
             cam.shake()

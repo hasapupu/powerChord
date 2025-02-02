@@ -6,9 +6,11 @@ class_name enemySpawner extends Node2D
 @onready var bruhTimer: Timer = get_node("Timer")
 var timeUntilSpawn = 3 
 var spawnLocs := [Vector2(450,20),Vector2(-450,20)]
+@onready var enemies := [kysRangedEnemy]
 
 func instantiateBasicEnemy():
-	var tempGoon = [basicEnemy,kysRangedEnemy].pick_random()
+	var tempGoon = enemies.pick_random()
+	enemies = [kysRangedEnemy,basicEnemy]
 	var currentBE: footSoldierEnemy = tempGoon.instantiate() as footSoldierEnemy
 	currentBE.playerPos = playerGO as player 
 	currentBE.position = spawnLocs.pick_random()

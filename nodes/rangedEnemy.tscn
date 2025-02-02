@@ -23,7 +23,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/path = NodePath("sprites/Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35,7 +35,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D3:rotation")
+tracks/1/path = NodePath("sprites/Sprite2D3:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -47,7 +47,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D5:rotation")
+tracks/2/path = NodePath("sprites/Sprite2D5:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -59,7 +59,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D5:position")
+tracks/3/path = NodePath("sprites/Sprite2D5:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -71,7 +71,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D5/Sprite2D6/gun:rotation")
+tracks/4/path = NodePath("sprites/Sprite2D5/Sprite2D6/gun:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -83,7 +83,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D5/Sprite2D6/gun:position")
+tracks/5/path = NodePath("sprites/Sprite2D5/Sprite2D6/gun:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -95,7 +95,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D8:rotation")
+tracks/6/path = NodePath("sprites/Sprite2D8:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -107,7 +107,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D8:position")
+tracks/7/path = NodePath("sprites/Sprite2D8:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -123,7 +123,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/path = NodePath("sprites/Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -135,7 +135,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D3:rotation")
+tracks/1/path = NodePath("sprites/Sprite2D3:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -147,7 +147,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D5:rotation")
+tracks/2/path = NodePath("sprites/Sprite2D5:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -159,7 +159,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D5:position")
+tracks/3/path = NodePath("sprites/Sprite2D5:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -171,7 +171,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D5/Sprite2D6/gun:rotation")
+tracks/4/path = NodePath("sprites/Sprite2D5/Sprite2D6/gun:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -183,7 +183,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D5/Sprite2D6/gun:position")
+tracks/5/path = NodePath("sprites/Sprite2D5/Sprite2D6/gun:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -195,7 +195,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D8:rotation")
+tracks/6/path = NodePath("sprites/Sprite2D8:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -207,7 +207,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D8:position")
+tracks/7/path = NodePath("sprites/Sprite2D8:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -223,7 +223,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/path = NodePath("sprites/Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -235,7 +235,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D3:rotation")
+tracks/1/path = NodePath("sprites/Sprite2D3:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -247,7 +247,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D5:rotation")
+tracks/2/path = NodePath("sprites/Sprite2D5:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -259,7 +259,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D5:position")
+tracks/3/path = NodePath("sprites/Sprite2D5:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -271,7 +271,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D5/Sprite2D6/gun:rotation")
+tracks/4/path = NodePath("sprites/Sprite2D5/Sprite2D6/gun:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -283,7 +283,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D5/Sprite2D6/gun:position")
+tracks/5/path = NodePath("sprites/Sprite2D5/Sprite2D6/gun:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -295,7 +295,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D8:rotation")
+tracks/6/path = NodePath("sprites/Sprite2D8:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -307,7 +307,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D8:position")
+tracks/7/path = NodePath("sprites/Sprite2D8:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -327,61 +327,6 @@ _data = {
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_i8qq2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(0, -52)
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(170, 190, 41, 50)
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(65, 255, 58, 74)
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(38, -17)
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(111, 194, 35, 32)
-
-[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D3"]
-position = Vector2(11, 27)
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(134, 237, 18, 43)
-
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(-32, -6)
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(49, 198, 24, 31)
-
-[node name="Sprite2D6" type="Sprite2D" parent="Sprite2D5"]
-position = Vector2(-24, 9)
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(22, 242, 42, 19)
-
-[node name="gun" type="Sprite2D" parent="Sprite2D5/Sprite2D6"]
-position = Vector2(-32, -14)
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(54, 167, 46, 18)
-
-[node name="Sprite2D8" type="Sprite2D" parent="."]
-position = Vector2(13, 57)
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(183, 254, 18, 49)
-
-[node name="Sprite2D9" type="Sprite2D" parent="Sprite2D8"]
-position = Vector2(0, 17)
-texture = ExtResource("1_0pwpf")
-region_enabled = true
-region_rect = Rect2(209, 310, 18, 17)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, -9)
 shape = SubResource("RectangleShape2D_6eo8q")
@@ -397,9 +342,9 @@ shape = SubResource("RectangleShape2D_6eo8q")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 visible = false
-offset_left = 21.0
+offset_left = -14.0
 offset_top = -83.0
-offset_right = 59.0
+offset_right = 24.0
 offset_bottom = -80.0
 theme_override_styles/background = SubResource("StyleBoxFlat_d41ma")
 theme_override_styles/fill = SubResource("StyleBoxFlat_lqwdl")
@@ -413,6 +358,8 @@ autostart = true
 
 [node name="hitBox" type="Area2D" parent="." groups=["enemyHitbox"]]
 position = Vector2(3, -14)
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("2_d2wwu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
@@ -423,6 +370,65 @@ shape = SubResource("RectangleShape2D_0ynhy")
 libraries = {
 "": SubResource("AnimationLibrary_wisod")
 }
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="sprites"]
+z_index = 1
+position = Vector2(0, -52)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(170, 190, 41, 50)
+
+[node name="Sprite2D2" type="Sprite2D" parent="sprites"]
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(65, 255, 58, 74)
+
+[node name="Sprite2D3" type="Sprite2D" parent="sprites"]
+z_index = 1
+position = Vector2(38, -17)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(111, 194, 35, 32)
+
+[node name="Sprite2D4" type="Sprite2D" parent="sprites/Sprite2D3"]
+position = Vector2(11, 27)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(134, 237, 18, 43)
+
+[node name="Sprite2D5" type="Sprite2D" parent="sprites"]
+position = Vector2(-32, -6)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(49, 198, 24, 31)
+
+[node name="Sprite2D6" type="Sprite2D" parent="sprites/Sprite2D5"]
+position = Vector2(-24, 9)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(22, 242, 42, 19)
+
+[node name="gun" type="Sprite2D" parent="sprites/Sprite2D5/Sprite2D6"]
+position = Vector2(-32, -14)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(54, 167, 46, 18)
+
+[node name="Sprite2D8" type="Sprite2D" parent="sprites"]
+position = Vector2(13, 57)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(183, 254, 18, 49)
+
+[node name="Sprite2D9" type="Sprite2D" parent="sprites/Sprite2D8"]
+position = Vector2(0, 17)
+texture = ExtResource("1_0pwpf")
+region_enabled = true
+region_rect = Rect2(209, 310, 18, 17)
 
 [connection signal="area_entered" from="hurtBox" to="hurtBox" method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

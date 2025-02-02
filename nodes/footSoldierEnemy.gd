@@ -11,6 +11,7 @@ var knockDir := Vector2(0,0)
 var isKnocked := false
 var knockVal := 0
 @onready var debugCube = preload("res://debugcube.tscn")
+@onready var drop: PackedScene = preload("res://nodes/pickUp.tscn")
 
 func deathFx():
     var currVfx = deathExplosionVfx.instantiate() as CPUParticles2D
@@ -18,6 +19,7 @@ func deathFx():
     get_parent().add_child(currVfx)
     currVfx.emitting = true
 
+    
 func stun():
     shouldMove = false
     isKnocked = true
@@ -31,14 +33,17 @@ func _physics_process(delta):
     if shouldMove == true:
         position = position.move_toward(playerPos.position,3)
     if playerPos.position.x > position.x:
-        scale = Vector2(-1,1)
-        healthBar.scale = Vector2(-1,1)
+        get_node("sprites").scale = Vector2(-1,1)
     else:
-        scale = Vector2(1,1)
-        healthBar.scale = Vector2(-1,1)
+        get_node("sprites").scale = Vector2(1,1)
 
     if currentHp < 1 and deathLim == true:
         deathLim = false
+        if range(daddyMaster.odds).pick_random() < 2:
+            daddyMaster.odds = 4
+            var currD = drop.instantiate()
+            currD.position = position
+            get_parent().add_child(currD)
         deathFx()
         queue_free()
 

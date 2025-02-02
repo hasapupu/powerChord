@@ -14,7 +14,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D3/Sprite2D2:region_rect")
+tracks/0/path = NodePath("sprites/Sprite2D3/Sprite2D2:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("sprites/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -43,7 +43,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D3/Sprite2D2:region_rect")
+tracks/0/path = NodePath("sprites/Sprite2D3/Sprite2D2:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,7 +55,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("sprites/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -86,27 +86,6 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_fh8fc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(0, 4)
-rotation = 0.127409
-texture = ExtResource("1_qq3xh")
-region_enabled = true
-region_rect = Rect2(170, 190, 41, 50)
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(3, 46)
-rotation = -0.125664
-texture = ExtResource("1_qq3xh")
-region_enabled = true
-region_rect = Rect2(183, 254, 18, 49)
-
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D3"]
-position = Vector2(0, 16)
-texture = ExtResource("1_qq3xh")
-region_enabled = true
-region_rect = Rect2(209, 310, 18, 17)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_vcyt2")
@@ -118,6 +97,8 @@ libraries = {
 autoplay = "robotMove"
 
 [node name="hitBox" type="Area2D" parent="." groups=["enemyHitbox"]]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("3_udmap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
@@ -134,6 +115,7 @@ shape = SubResource("RectangleShape2D_vcyt2")
 [node name="CPUParticles2D" parent="." instance=ExtResource("6_lem8c")]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -18.0
 offset_top = -26.0
 offset_right = 20.0
@@ -143,5 +125,28 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_qttcf")
 max_value = 9.0
 value = 9.0
 show_percentage = false
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="sprites"]
+z_index = 1
+position = Vector2(0, 4)
+rotation = 0.127409
+texture = ExtResource("1_qq3xh")
+region_enabled = true
+region_rect = Rect2(170, 190, 41, 50)
+
+[node name="Sprite2D3" type="Sprite2D" parent="sprites"]
+position = Vector2(3, 46)
+rotation = -0.125664
+texture = ExtResource("1_qq3xh")
+region_enabled = true
+region_rect = Rect2(183, 254, 18, 49)
+
+[node name="Sprite2D2" type="Sprite2D" parent="sprites/Sprite2D3"]
+position = Vector2(0, 16)
+texture = ExtResource("1_qq3xh")
+region_enabled = true
+region_rect = Rect2(209, 310, 18, 17)
 
 [connection signal="area_entered" from="hurtBox" to="hurtBox" method="_on_area_entered"]

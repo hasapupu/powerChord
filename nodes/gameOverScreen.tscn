@@ -50,6 +50,7 @@ text = "Game Over"
 
 [node name="Button" type="Button" parent="."]
 z_index = 4096
+layout_mode = 0
 offset_left = 372.0
 offset_top = 275.0
 offset_right = 577.0
@@ -66,6 +67,7 @@ text = "RETRY"
 
 [node name="Button2" type="Button" parent="."]
 z_index = 4096
+layout_mode = 0
 offset_left = 372.0
 offset_top = 390.0
 offset_right = 577.0
