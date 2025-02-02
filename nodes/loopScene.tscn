@@ -1552,6 +1552,8 @@ visible = false
 position = Vector2(0, -30)
 texture = ExtResource("8_n3lja")
 
+[node name="RayCast2D" type="RayCast2D" parent="player"]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("7_aijf6")
 decay = 1.2

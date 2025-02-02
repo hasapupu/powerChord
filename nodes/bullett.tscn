@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://nodes/hitBox.gd" id="2_p865m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onnve"]
-radius = 9.0
+radius = 17.0294
 
 [node name="Sprite2D" type="Sprite2D"]
 texture = ExtResource("1_a64gd")
