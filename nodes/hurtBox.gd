@@ -13,6 +13,7 @@ func _on_area_entered(area: hitBox):
     if get_parent() is player and area.is_in_group("playerHitbox") == false and area.is_in_group("slowZone") == false:
         var tempP = get_parent() as player
         tempP.currentHp -= 3
+        get_tree().root.get_node("Node2D").musicPlayer.stream_paused = false
         tempP.shouldMove = true
         tempP.healthBar.visible = true
         tempP.themHandsAnim.play("RESET")

@@ -8,12 +8,14 @@ var currentHp = 100
 var maxHp = 100
 @onready var healthBar: ProgressBar = get_parent().get_node("TextureProgressBar")
 var shouldMove := false
-var strInv := ["projectile"]
+var strInv := []
 var uiParents := []
 @onready var slowAr = preload("res://nodes/slowzone.tscn")
 @onready var proj = preload("res://nodes/playerBullet.tscn")
 var inputDirection: Vector2
 @onready var gunRay = get_node("RayCast2D")
+var namesDict = {"dash":false,"overheadSlam":false,"swing":false,"slowArea":false,"projectile":false}
+var coolDowns := {}
 
 func _ready():
 	for i in range(5):
@@ -53,7 +55,9 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("basicAttack"):
 			themHandsAnim.play(atkAnim + "hit")
 		elif Input.is_action_just_pressed("dash"):
-			if strInv.has("dash"):
+			if strInv.has("dash") and namesDict["dash"] == false:
+				namesDict["dash"] = true
+				coolDowns["dash"].startCoolDown()
 				speed = 350
 				get_node("Area2D/CollisionShape2D").disabled = true
 				get_node("shield").visible = true
@@ -63,18 +67,28 @@ func _physics_process(delta):
 				get_node("shield").visible = false
 			pass
 		elif Input.is_action_just_pressed("overheadSlam"):
-			if strInv.has("overheadSlam"):
-				pass
+			if strInv.has("overheadSlam") and namesDict["overheadSlam"] == false:
+				namesDict["overheadSlam"] = true
+				coolDowns["overheadSlam"].startCoolDown()
+				get_tree().root.get_node("Node2D").ult()
 			pass
 		elif Input.is_action_just_pressed("swing"):
-			if strInv.has("swing"):
+			if strInv.has("swing") and namesDict["swing"] == false:
+				namesDict["swing"] = true
+				coolDowns["swing"].startCoolDown()
 				themHandsAnim.play(atkAnim + "parry")
 		elif Input.is_action_just_pressed("slowArea"):
-			if strInv.has("slowArea"):
-				get_parent().add_child(slowAr.instantiate())
+			if strInv.has("slowArea") and namesDict["slowArea"] == false:
+				namesDict["slowArea"] = true
+				coolDowns["slowArea"].startCoolDown()
+				var tempA = slowAr.instantiate()
+				tempA.global_position = global_position
+				get_parent().add_child(tempA)
 			pass
 		elif Input.is_action_just_pressed("projectile"):
-			if strInv.has("projectile"):
+			if strInv.has("projectile") and namesDict["projectile"] == false:
+				namesDict["projectile"] = true
+				coolDowns["projectile"].startCoolDown()
 				var tempB = proj.instantiate() as bullet
 				tempB.target = gunRay.target_position / 10
 				tempB.global_position = gunRay.target_position + global_position

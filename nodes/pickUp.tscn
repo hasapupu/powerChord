@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b71ndnt0osdld"]
+[gd_scene load_steps=5 format=3 uid="uid://b71ndnt0osdld"]
 
 [ext_resource type="Texture2D" uid="uid://qo65g1pkq207" path="res://funny skeleman.png" id="1_jdu1m"]
 [ext_resource type="Script" path="res://nodes/pickUp.gd" id="2_ukukf"]
+[ext_resource type="FontFile" uid="uid://gkdmg5l3qkpn" path="res://Digitag.ttf" id="3_n7hh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjgsm"]
 size = Vector2(28, 30)
@@ -17,4 +18,17 @@ script = ExtResource("2_ukukf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xjgsm")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 10
+offset_left = -9.0
+offset_top = -7.0
+offset_right = 31.0
+offset_bottom = 33.0
+theme_override_fonts/normal_font = ExtResource("3_n7hh6")
+theme_override_font_sizes/normal_font_size = 13
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

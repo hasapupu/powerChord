@@ -2,22 +2,43 @@ class_name pickUp extends Sprite2D
 
 var stringConst: String
 @onready var collShape = get_node("Area2D/CollisionShape2D")
+var namesDict = {"dash":"Invul","overheadSlam":"Ultimate","swing":"Parry","slowArea":"Slow","projectile":"Shoot"}
+@onready var time: Timer = get_node("Timer")
+@onready var tesu: RichTextLabel = get_node("RichTextLabel")
+var playerChar: player
+var lengths = {"dash":2,"overheadSlam":30,"swing":1,"slowArea":10,"projectile":3}
 
 func _ready():
 	stringConst = daddyMaster.uncollectedItems.pick_random()
 	daddyMaster.uncollectedItems.erase(stringConst)
 
+func _process(delta):
+	if time.is_stopped() == false:
+		tesu.text = str(round(time.time_left))
+		print(time.is_stopped())
+	else:
+		tesu.text = namesDict[stringConst]
+		
+
+func _on_timer_timeout():
+	playerChar.namesDict[stringConst] = false
+
 func _on_body_entered(body):
 	if body is player:
-		var tempP := body as player
+		playerChar = body as player
+		playerChar.coolDowns[stringConst] = self
 		collShape.disabled = true
-		reparent(tempP)
+		reparent(playerChar)
 		position = Vector2(0,-100)
 		await get_tree().create_timer(1.0).timeout
-		reparent(tempP.uiParents[tempP.strInv.size()])
+		reparent(playerChar.uiParents[playerChar.strInv.size()])
 		move_to(Vector2(0,0),1,Vector2(1,1))
 		await get_tree().create_timer(1.0).timeout
-		tempP.strInv.append(stringConst)
+		playerChar.strInv.append(stringConst)
+
+func startCoolDown():
+	time.wait_time = lengths[stringConst]
+	time.start()
 
 func move_to(target_position: Vector2, duration: float, target_scale: Vector2 = scale, use_local_coords: bool = true) -> void:
 	var tween = create_tween()

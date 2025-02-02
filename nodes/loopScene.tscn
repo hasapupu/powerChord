@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c7gja0e076olq"]
+[gd_scene load_steps=54 format=3 uid="uid://c7gja0e076olq"]
 
 [ext_resource type="Script" path="res://nodes/playerScript.gd" id="1_f47uq"]
 [ext_resource type="Script" path="res://nodes/daddyMaster.gd" id="1_nuh3i"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://r6gnvoa77w6i" path="res://shield.png" id="8_n3lja"]
 [ext_resource type="Texture2D" uid="uid://ctdo07b2vlute" path="res://pixil-frame-0_284.png" id="10_bhfmf"]
 [ext_resource type="FontFile" uid="uid://gkdmg5l3qkpn" path="res://Digitag.ttf" id="10_h84bw"]
+[ext_resource type="Texture2D" uid="uid://bfuq2wko1f1lq" path="res://megaSkeleman.png" id="15_ei688"]
+[ext_resource type="AudioStream" uid="uid://bftyogj8e02ps" path="res://HEAVY METAL TYPE OF SONG FULL SONG.ogg" id="16_nwkjq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21jf3"]
 size = Vector2(29, 38)
@@ -1450,11 +1452,66 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibia3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="Animation" id="Animation_f08uu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("megaSkeleman:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-644, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cprd6"]
+resource_name = "rest"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("megaSkeleman:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-644, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8yd48"]
+resource_name = "ulti"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("megaSkeleman:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-644, 0), Vector2(-269, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mmmx"]
+_data = {
+"RESET": SubResource("Animation_f08uu"),
+"rest": SubResource("Animation_cprd6"),
+"ulti": SubResource("Animation_8yd48")
+}
+
 [node name="Node2D" type="Node2D"]
+process_mode = 3
 y_sort_enabled = true
 script = ExtResource("1_nuh3i")
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
+process_mode = 1
 position = Vector2(0, 70)
 platform_floor_layers = 4294967040
 script = ExtResource("1_f47uq")
@@ -1555,9 +1612,10 @@ texture = ExtResource("8_n3lja")
 [node name="RayCast2D" type="RayCast2D" parent="player"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 1
 script = ExtResource("7_aijf6")
 decay = 1.2
-max_offset = Vector2(75, 75)
+max_offset = Vector2(50, 50)
 noise = SubResource("FastNoiseLite_r3kr8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -1601,12 +1659,14 @@ position = Vector2(0, -26)
 shape = SubResource("SegmentShape2D_7d3j0")
 
 [node name="factory" type="Node2D" parent="."]
+process_mode = 1
 script = ExtResource("6_ixuyg")
 
 [node name="Timer" type="Timer" parent="factory"]
 wait_time = 3.0
 
 [node name="TextureProgressBar" type="ProgressBar" parent="."]
+process_mode = 1
 visible = false
 offset_left = -269.0
 offset_top = -261.0
@@ -1622,12 +1682,14 @@ show_percentage = false
 position = Vector2(-455, 18)
 
 [node name="Control" type="Control" parent="."]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Control"]
+process_mode = 1
 z_index = 4096
 layout_mode = 0
 offset_left = -314.0
@@ -1645,6 +1707,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ibia3")
 text = "START"
 
 [node name="Button2" type="Button" parent="Control"]
+process_mode = 1
 z_index = 4096
 layout_mode = 0
 offset_left = -109.0
@@ -1662,6 +1725,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ibia3")
 text = "CONTROLS"
 
 [node name="Button3" type="Button" parent="Control"]
+process_mode = 1
 z_index = 4096
 layout_mode = 0
 offset_left = 133.0
@@ -1679,6 +1743,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ibia3")
 text = "QUIT"
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+process_mode = 1
 layout_mode = 0
 offset_left = -102.0
 offset_top = -261.0
@@ -1687,28 +1752,78 @@ offset_bottom = -172.0
 texture = ExtResource("10_bhfmf")
 expand_mode = 3
 
+[node name="controls" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="uiParent0" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(-300, 223)
 scale = Vector2(1.88575, 1.88575)
 
 [node name="uiParent1" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(-170, 223)
 scale = Vector2(1.81552, 1.81552)
 
 [node name="uiParent2" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(-34, 223)
 scale = Vector2(1.886, 1.886)
 
 [node name="uiParent3" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(105, 223)
 scale = Vector2(1.886, 1.886)
 
 [node name="uiParent4" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(242, 223)
 scale = Vector2(1.886, 1.886)
+
+[node name="megaSkeleman" type="Sprite2D" parent="."]
+z_index = 4096
+position = Vector2(-644, 0)
+scale = Vector2(0.458771, 0.458771)
+texture = ExtResource("15_ei688")
+
+[node name="ultAnim" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_8mmmx")
+}
+
+[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_nwkjq")
+volume_db = -20.0
+autoplay = true
+
+[node name="sfxPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -470.0
+offset_top = 195.0
+offset_right = -355.0
+offset_bottom = 271.0
+theme_override_fonts/normal_font = ExtResource("10_h84bw")
+text = "   Art and programming: 
+    cornL"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 334.0
+offset_top = 198.0
+offset_right = 449.0
+offset_bottom = 274.0
+theme_override_fonts/normal_font = ExtResource("10_h84bw")
+text = "    Audio:
+Canoi(oniton)"
 
 [connection signal="area_entered" from="player/Area2D" to="player/Area2D" method="_on_area_entered"]
 [connection signal="area_entered" from="player/hitBox/hitBox2" to="player/hitBox/hitBox2" method="_on_area_entered"]
 [connection signal="timeout" from="factory/Timer" to="factory" method="_on_timer_timeout"]
 [connection signal="button_down" from="Control/Button" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="Control/Button2" to="." method="_on_controls_button_down"]
 [connection signal="button_down" from="Control/Button3" to="." method="_on_quit_button_down"]
+[connection signal="animation_finished" from="ultAnim" to="." method="_on_animation_finished"]
+[connection signal="finished" from="musicPlayer" to="." method="_on_music_player_finished"]
